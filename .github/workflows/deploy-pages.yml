@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PAGES_ENABLE_TOKEN: ${{ secrets.PAGES_ENABLE_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,7 +36,15 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Setup Pages with auto-enable
+        if: ${{ env.PAGES_ENABLE_TOKEN != '' }}
+        uses: actions/configure-pages@v5
+        with:
+          token: ${{ env.PAGES_ENABLE_TOKEN }}
+          enablement: true
+
       - name: Setup Pages
+        if: ${{ env.PAGES_ENABLE_TOKEN == '' }}
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
