@@ -59,6 +59,36 @@ npm run build
 npm run preview
 ```
 
+## 部署到 GitHub Pages
+
+这个项目已经补好了 GitHub Pages 所需配置:
+
+- `vite.config.js` 会在 GitHub Actions 构建时自动推导仓库名并设置 `base`
+- `.github/workflows/deploy-pages.yml` 会在推送到 `main` 后自动部署
+
+操作步骤:
+
+1. 在 GitHub 上新建仓库，比如 `blue-space-roll-atlas`
+2. 把本地仓库推上去
+
+```bash
+git remote add origin git@github.com:<你的用户名>/blue-space-roll-atlas.git
+git branch -M main
+git push -u origin main
+```
+
+3. 打开仓库页面，进入 `Settings -> Pages`
+4. `Source` 选择 `GitHub Actions`
+5. 等待 `Actions` 里的 `Deploy GitHub Pages` 工作流跑完
+
+发布地址通常是:
+
+```text
+https://<你的用户名>.github.io/<仓库名>/
+```
+
+如果你后面把默认分支改成别的名字，要同步修改 `.github/workflows/deploy-pages.yml` 里的分支配置。
+
 ## 目录概览
 
 ```text
