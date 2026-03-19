@@ -77,9 +77,9 @@ git branch -M main
 git push -u origin main
 ```
 
-3. 打开仓库页面，进入 `Settings -> Pages`
-4. `Source` 选择 `GitHub Actions`
-5. 等待 `Actions` 里的 `Deploy GitHub Pages` 工作流跑完
+1. 打开仓库页面，进入 `Settings -> Pages`
+2. `Source` 选择 `GitHub Actions`
+3. 等待 `Actions` 里的 `Deploy GitHub Pages` 工作流跑完
 
 发布地址通常是:
 
